@@ -1,0 +1,94 @@
+<div class="container">
+<div class="row">
+<h2>Detalhes Produtos</h2> 
+
+<hr/>
+<div *ngIf="produto" class="col-md-12">
+    <div>
+        <label><b>Id:</b></label> {{produto.id}}
+      </div>
+    <div>
+    <label><b>Produto: </b></label> {{produto.nome}}
+  </div>  
+  <div>
+    <label><b>Descrição:</b></label> {{produto.descricao}}
+  </div>
+  <div>
+    <label><b>Preço:</b></label> {{produto.preco | currency:'BRL': true}}
+  </div> 
+  
+</div>
+<br/>
+                          
+
+
+<br>
+<br>
+<button [routerLink]="['/listar']" class="btn btn-primary">Voltar a lista de produtos</button><br>
+
+</div>
+</div>
+
+<hr/>
+
+<div class="container col-md-8">
+  <div class="card">
+      <div class="card-header">
+          <h3>Detalhes</h3>  
+      </div>
+      <div class="card-body"> 
+
+          <form >
+              <div class="form-group">
+                  <label >Telefone</label>
+                  <input type="text" placeholder="digite seu número..." [(ngModel)]="produt.fones.telefone" name="telefone" class="form-control">
+              </div>
+
+              <div class="form-group">
+                  <label for="">tipo</label>
+                  <input type="text"   placeholder="casa/cel/trabal..." [(ngModel)]="produt.fones.tipo" name="tipo" class="form-control">
+               </div>
+             
+                  <button (click)="addFone()" class="btn btn-info">Salvar Fone</button>
+          </form>
+      </div>
+
+  </div>
+
+</div>
+
+<hr/>
+<br/>
+
+<div class="container">
+  <div class="card">
+      <div class="card-header">
+          <h3>Telefones</h3>
+          <div class="card-body">
+              <table class="table table-hover">
+                  <thead>
+                      <tr>
+                          <th>Codigo</th>
+                          <th>telefone</th>
+                          <th>Tipo</th>
+                          <th>Ações</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let f of fones" class="text-center"><!---" personas" é uma variavel criada no listar.comp.ts--->
+                          <td>{{f.id}}</td>
+                          <td>{{f.telefone}}</td>
+                          <td>{{f.tipo}}</td>
+                          <td>
+                              <button (click)="EditarFone()" class="btn-success text-center"  style="margin-left: 10px;">Editar</button>
+                              <button (click)="detalhesFone()" class="btn-primary text-center" style="margin-left: 10px;">Detalhe</button>
+                              
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+  </div>
+</div>

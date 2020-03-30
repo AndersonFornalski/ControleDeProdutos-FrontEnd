@@ -1,0 +1,51 @@
+<h3>Image Uploading Module</h3>
+
+
+<div>
+    <input type="file" (change)="onFileChanged($event)">
+
+    <img [src]="imgURL" height="300" *ngIf="imgURL">
+</div>
+
+<input type="button" (click)="onUpload()" value="upload">
+
+<hr />
+
+Received Image:
+
+
+<img [src]="convertedImage" height="500">
+
+<br/>
+<br/>
+<div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3>Produtos</h3>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Foto</th>
+                            </tr>  
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let fotos of photos" class="text-center"><!---" personas" é uma variavel criada no listar.comp.ts--->
+                                <td> <img src="{{fotos.pic}" height="300"> </td>
+                                <td>
+                                    <button  class="btn-success text-center"  style="margin-left: 10px;">Editar</button>
+                                    <button class="btn-primary text-center" style="margin-left: 10px;">Detalhe</button>
+                                    <button class="btn-info text-center" style="margin-left: 10px;">Delete</button>
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

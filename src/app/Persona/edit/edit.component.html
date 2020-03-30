@@ -1,0 +1,80 @@
+<div class="container col-md-8">
+    <div class="card">
+        <div class="card-header">
+            <h3>Atualizar Produto</h3>  
+        </div>
+        <div class="card-body">
+            <form >
+                <div class="form-group">
+                    <label >Produto</label>
+                    <input type="text" placeholder="digite o produto..." [(ngModel)]="produto.nome" name="nome"  class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="">Descrição</label>
+                    <input type="text"   placeholder="digite a descrição do produto..." [(ngModel)]="produto.descricao" name="descricao"  class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="">Preço</label>
+                    <input type="text" placeholder=" digite o preço..." [(ngModel)]="produto.preco" name="preco" class="form-control">
+                </div>
+                <br/>
+                
+                <button (click)="Atualizar(produto)"  class="btn btn-info">Atualizar</button>
+                
+                <br/>
+                 <br/>
+                            
+                 
+
+            </form>
+
+            
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="card text-center">
+    <div class="card-header">
+       <h3>Telefones</h3>
+    </div>
+    <div class="card-body">
+        <div class="form-row">
+           <div class="form-group">
+           <label for="">Telefone</label>
+           <input type="text" [(ngModel)]="telefone.telefone"  placeholder=" digite o fone..."  name="telefone" class="form-control">
+        </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="">Tipo</label>
+                <input type="text" [(ngModel)]="telefone.tipo"  placeholder=" digite o Tipo..."  name="tipo" class="form-control">
+            </div>
+        </div>
+
+        <button (click)="addFone()" class="btn-primary">Adicionar Telefone</button>
+    </div>
+</div>
+
+
+<table class="table">                                   
+   <tbody>
+       <tr *ngFor="let fone of produto.fones">  <!---" personas" é uma variavel criada no listar.comp.ts--->
+           <td>{{fone.id}}</td>
+           <td>{{fone.telefone}}</td>
+           <td>{{fone.tipo}}</td>
+           <td>
+               <button (click)="delFones(fone.id)" class="btn-warning">delete</button>
+               
+           </td>
+       </tr>
+   </tbody>
+</table>    
+<br/><br/><br/><br/>
+
